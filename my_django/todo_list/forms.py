@@ -5,10 +5,16 @@ from todo_list.models import ToDoItem
 class ToDoItemForm(forms.ModelForm):
     class Meta:
         model = ToDoItem
-        fields = ('title', )
+        fields = ('title', 'description')
 
         widgets = {
-            "title": forms.Textarea(attrs={'cols': 80, 'rows': 20}),
+            "description": forms.Textarea(
+                attrs={'cols': 30, 'rows': 5},
+            ),
+        }
+
+        help_texts = {
+            "description": "Some useful help text.",
         }
 
 
